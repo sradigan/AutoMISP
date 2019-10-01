@@ -1,4 +1,10 @@
-AutoMISP
+# AutoMISP
+
+## Slightly modified from original
+
+Forked from: https://github.com/da667/AutoMISP
+
+## Original README
 
 a da_667 endeavor
 
