@@ -312,7 +312,8 @@ print_status "modifying /etc/php/7.0/apache2/php.ini to use redis.so.."
 if [ -f /etc/php/7.0/apache2/php.ini.bak ]; then
 	print_notification "redis.so already enabled"
 else
-	cp /etc/php/?.?/apache2/php.ini /etc/php/?.?/apache2/php.ini.bak
+	phpinipath=$(find /etc/php/*/apache2 -name "php.ini")
+	cp  ${phpinipath} ${phpinipath}.bak
 	echo "; Support for phpredis - added on `date`" >> /etc/php/?.?/apache2/php.ini
 	echo "extension=redis.so" >> /etc/php/?.?/apache2/php.ini
 fi
