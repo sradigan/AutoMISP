@@ -10,6 +10,7 @@
 #These passwords are default values. You can use them, but I very highly suggest changing them.
 root_mysql_pass='ayylmaoayylmaoayylmaoayylmao'
 misp_mysql_pass='ayylmaoayylmaoayylmaoayylmao'
+misp_baseurl='https://localhost'
 
 ########################################
 #This line unsets some environment variables just for the shell script to run. This is done to ensure that passwords are NOT logged to your .*history files.
@@ -438,6 +439,9 @@ service apache2 restart &>> $logfile
 error_check 'apache2 service restart'
 
 ########################################
+
+# Set up the Baseurl to fix redirects
+sudo -u www-data /var/www/MISP/app/Console/cake Baseurl "${misp_baseurl}"
 
 print_good "script completed successfully."
 print_notification "MISP installed at: /var/www/MISP"
